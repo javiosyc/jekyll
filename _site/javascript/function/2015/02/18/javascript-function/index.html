@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>javascript function</title>
+    <meta name="description" content="javascript function">
+    <meta name="author" content="javiosyc">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/css/1.4.0/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">Javio</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>javascript function <small>Supporting tagline</small></h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    
+<h2 id="function">Function</h2>
+
+<p>The defining characteristic of a function — what distinguishes it from any other object — is the presence of <strong>an internal property named [[Call]]</strong>.</p>
+
+<p>Internal properties are not accessible via code but rather define the behavior of code as it executes.</p>
+
+<p>ECMAScript defines multiple internal properties for objects in JavaScript, and these internal properties are indicated by <strong>double-square-bracket notation</strong>.</p>
+
+<p><strong>The [[Call]] property is unique to functions and indicates that the object can be executed</strong>.</p>
+
+<h3 id="declarations-vs-expressions">Declarations vs. Expressions</h3>
+
+<p>two literal forms of functions.</p>
+
+<p>1.<strong>Function declaration</strong>, which begins with the function keyword and includes the name of the function immediately following it.</p>
+
+<p><code> function add(num1, num2) {</code></p>
+
+<p><code>            return num1 + num2;</code></p>
+
+<p><code>}</code></p>
+
+<p>2.<strong>Function expression</strong>, which doesn’t require a name after function.</p>
+
+<p>These functions are considered <strong>anonymous</strong> because the function object itself has no name.</p>
+
+<p>Instead, function expressions are typically <strong>referenced via a variable or property</strong>, as in this expression:</p>
+
+<p><code>var add = function(num1, num2) {</code></p>
+
+<p><code>		return num1 + num2;</code></p>
+
+<p><code>};</code></p>
+
+<p>This code actually assigns a function value to the variable add. </p>
+
+<p>The function expression is almost identical to the function declaration except for <strong>the missing name and the semicolon at the end</strong>.</p>
+
+<p>Assignment expressions typically end with a semicolon, just as if you were assigning any other value.</p>
+
+<p>Function declarations <strong>are hoisted to the top of the context (either the function in which the declaration occurs or the global scope) when the code is executed.</strong></p>
+
+<p><code>var result = add(5, 5);</code></p>
+
+<p><code>        function add(num1, num2) {</code></p>
+
+<p><code>            return num1 + num2;</code></p>
+
+<p><code>}</code></p>
+
+<p>That’s because the JavaScript <strong>engine hoists the function declaration to the top and actually executes the code</strong> as if it were written like this:</p>
+
+<p><code> // how the JavaScript engine interprets the code</code></p>
+
+<p><code>        function add(num1, num2) {</code></p>
+
+<p><code>            return num1 + num2;</code></p>
+
+<p><code>        }</code></p>
+
+<p><code>        var result = add(5, 5);</code></p>
+
+<p><strong>Function hoisting happens only for function declarations because the function name is known ahead of time.</strong></p>
+
+<p>Function expressions, on the other hand, cannot be hoisted because the functions can be referenced only through a variable.</p>
+
+<p>So this code causes an error:</p>
+
+<p><code>// error!</code>
+`       var result = add(5, 5);`</p>
+
+<p><code>        var add = function(num1, num2) {</code></p>
+
+<p><code>            return num1 + num2;</code></p>
+
+<p><code>};</code></p>
+
+<h3 id="functions-as-values">Functions as Values</h3>
+
+<p>Because JavaScript has first-class functions, you can use them just <strong>as you do any other objects</strong>.</p>
+
+<p>You can assign them to variables, add them to objects, pass them to other functions as arguments, and return them from functions.</p>
+
+<p>The sort() method on JavaScript arrays accepts a comparison function as an optional parameter.</p>
+
+<p>The comparison function is called whenever two values in the array must be compared.</p>
+
+<p>If the first value is smaller than the second, the comparison function must return a negative number.</p>
+
+<p>If the first value is larger than the second, the function must return a positive number.</p>
+
+<p>If the two values are equal, the function should return zero.</p>
+
+<p>By default, sort() converts every item in an array to a string and then performs a comparison.</p>
+
+<p>That means you can’t accurately sort an array of numbers without specifying a comparison function.</p>
+
+<p><code>var numbers = [ 1, 5, 8, 4, 7, 10, 2, 6 ];</code></p>
+
+<p><code>numbers.sort(function(first, second) {</code></p>
+
+<p><code>       return first - second;</code></p>
+
+<p><code>   });</code></p>
+
+<p><code>console.log(numbers); // "[1, 2, 4, 5, 6, 7, 8, 10]"</code></p>
+
+<p><code>numbers.sort();</code></p>
+
+<p><code>console.log(numbers);       // "[1, 10, 2, 4, 5, 6, 7, 8]"</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>Another unique aspect of JavaScript functions is that you can <strong>pass any number of parameters to any function without causing an error</strong>.</p>
+
+<p>That’s because function parameters are actually <strong>stored as an array-like structure called arguments</strong>.</p>
+
+<p>Just like a regular JavaScript array, arguments can grow to contain any number of values.</p>
+
+<p>The values are referenced via numeric indices, and there is a length property to determine how many values are present.</p>
+
+<p><strong>The arguments object is automatically available inside any function</strong>.</p>
+
+<p>This means named parameters in a function exist mostly for convenience and don’t actually limit the number of arguments that a function can accept.</p>
+
+<p>The first implementation of reflect() is much easier to understand because it uses a named argument (as you would in other languages).</p>
+
+<p>The version that uses the arguments object can be confusing because there are no named arguments, and you must read the body of the function to determine if arguments are used.</p>
+
+<p>That is why many developers prefer to avoid using arguments unless necessary.</p>
+
+<h3 id="overloading">Overloading</h3>
+
+<p>As mentioned previously, JavaScript functions can accept any number of parameters, and the types of parameters a function takes aren’t specified at all.</p>
+
+<p>That means JavaScript functions don’t actually have signatures.</p>
+
+<p><strong>A lack of function signatures also means a lack of function overloading.</strong></p>
+
+<p>You can retrieve the number of parameters that were passed in by using the arguments object, and you can use that information to determine what to do.</p>
+
+<p><code>function sayMessage(message) {</code></p>
+
+<p><code>    if (arguments.length === 0) {</code></p>
+
+<p><code>        message = "Default message";</code></p>
+
+<p><code>}</code></p>
+
+<p><code>    console.log(message);</code></p>
+
+<p><code>}</code></p>
+
+<p><code>sayMessage("Hello!");       // outputs "Hello!"</code></p>
+
+<p>This is a little more involved than function overloading in other languages, but the end result is the same. If you really want to check for different data types, you can use typeof and instanceof.</p>
+
+<p>In practice, checking the named parameter against undefined is more common than relying on arguments.length.</p>
+
+<p>### Object Methods</p>
+
+<p>When a property value is actually a function, the property is considered a method.</p>
+
+<p><code>var person = {</code></p>
+
+<p><code>            name: "Nicholas",</code></p>
+
+<p><code>            sayName: function() {</code></p>
+
+<p><code>                console.log(person.name);</code></p>
+
+<p><code>            }</code></p>
+
+<p><code>        };</code></p>
+
+<p><code>person.sayName();       // outputs "Nicholas"</code></p>
+
+<h4 id="the-this-object">The this Object</h4>
+
+<p>You may have noticed something strange in the previous example. The sayName() method references person.name directly, which creates tight coupling between the method and the object.</p>
+
+<p>This is problematic for a number of reasons. </p>
+
+<p>First, if you change the variable name, you also need to remember to change the reference to that name in the method.</p>
+
+<p>Second, this sort of tight coupling makes it difficult to use the same function for different objects. Fortunately, JavaScript has a way around this issue.</p>
+
+<p><strong>Every scope in JavaScript has a this object that represents the calling object for the function.</strong></p>
+
+<p>In the global scope, this represents the <strong>global object (window in web browsers)</strong>.</p>
+
+<p><strong>When a function is called while attached to an object, the value of this is equal to that object by default.</strong></p>
+
+<p>So, instead of directly referencing an object inside a method, you can reference this instead.</p>
+
+<p><code>var person = {</code></p>
+
+<p><code>    name: "Nicholas",</code></p>
+
+<p><code>    sayName: function() {</code></p>
+
+<p><code>        console.log(this.name);</code></p>
+
+<p><code>    }</code></p>
+
+<p><code>};</code></p>
+
+<p><code>person.sayName();       // outputs "Nicholas"</code></p>
+
+<p><code>function sayNameForAll() {</code></p>
+
+<p><code>    console.log(this.name);</code></p>
+
+<p><code>}</code></p>
+
+<p><code>var person1 = {</code></p>
+
+<p><code>    name: "Nicholas",</code></p>
+
+<p><code>    sayName: sayNameForAll</code></p>
+
+<p><code>};</code></p>
+
+<p><code>var person2 = {</code></p>
+
+<p><code>    name: "Greg",</code></p>
+
+<p><code>    sayName: sayNameForAll</code></p>
+
+<p><code>};</code></p>
+
+<p><code>var name = "Michael";</code></p>
+
+<p><code>person1.sayName(); // outputs "Nicholas"</code></p>
+
+<p><code>person2.sayName(); // outputs "Greg"</code></p>
+
+<p><code>sayNameForAll(); // outputs "Michael"</code> </p>
+
+<h3 id="changing-this"><strong><em>Changing this</em></strong></h3>
+
+<p>The ability to use and manipulate the this value of functions is key to good object-oriented programming in JavaScript.</p>
+
+<p>Functions can be used in many different contexts, and they need to be able to work in each situation.</p>
+
+<p><strong>Even though this is typically assigned automatically, you can change its value to achieve different goals.</strong></p>
+
+<p><strong>There are three function methods that allow you to change the value of this. (Remember that functions are objects, and objects can have methods, so functions can, too.)</strong></p>
+
+<h4 id="the-call-method">The call() Method</h4>
+
+<p>The first function method for manipulating this is call(), which executes the function with a particular this value and with specific parameters.</p>
+
+<p><strong>The first parameter of call() is the value to which this should be equal when the function is executed.</strong></p>
+
+<p>All subsequent parameters are the parameters that should be passed into the function.</p>
+
+<p><code>function sayNameForAll(label) {</code></p>
+
+<p><code>    console.log(label + ":" + this.name);</code></p>
+
+<p><code>}</code></p>
+
+<p><code>var person1 = {</code></p>
+
+<p><code>    name: "Nicholas"</code></p>
+
+<p><code>};</code></p>
+
+<p><code>var person2 = {</code></p>
+
+<p><code>    name: "Greg"</code></p>
+
+<p><code>};</code></p>
+
+<p><code>var name = "Michael";</code></p>
+
+<p><code>sayNameForAll.call(this, "global"); // outputs "global:Michael"</code></p>
+
+<p><code>sayNameForAll.call(person1, "person1"); // outputs "person1:Nicholas"</code></p>
+
+<p><code>sayNameForAll.call(person2, "person2"); // outputs "person2:Greg"</code></p>
+
+<h4 id="the-apply-method"><strong>The apply() Method</strong></h4>
+
+<p>The second function method you can use to manipulate this is apply().</p>
+
+<p>The apply() method works exactly the same as call() except that it accepts only two parameters: <strong>the value for this</strong> and <strong>an array or array-like object of parameters to pass to the function (that means you can use an arguments object as the second parameter)</strong>.</p>
+
+<p>So, instead of individually naming each parameter using call(), you can easily pass arrays to apply() as the second argument.</p>
+
+<p>Otherwise, call() and apply() behave identically.</p>
+
+<p><code>function sayNameForAll(label) {</code></p>
+
+<p><code>    console.log(label + ":" + this.name);</code></p>
+
+<p><code>}</code></p>
+
+<p><code>var person1 = {</code></p>
+
+<p><code>    name: "Nicholas"</code></p>
+
+<p><code>};</code></p>
+
+<p><code>var person2 = {</code></p>
+
+<p><code>    name: "Greg"</code></p>
+
+<p><code>};</code></p>
+
+<p><code>var name = "Michael";</code></p>
+
+<p><code>sayNameForAll.apply(this, ["global"]); // outputs "person1:Michael"</code></p>
+
+<p><code>sayNameForAll.apply(person1, ["person1"]);  // outputs "person1:Nicholas"</code></p>
+
+<p><code>sayNameForAll.apply(person2, ["person2"]);  // outputs "person2:Greg"</code></p>
+
+<p>The method you use typically depends on <strong>the type of data you have</strong>.</p>
+
+<p><strong>If you already have an array of data, use apply(); if you just have individual variables, use call()</strong>.</p>
+
+<h4 id="the-bind-method"><strong>The bind() Method</strong></h4>
+
+<p>The third function method for changing this is bind().</p>
+
+<p>This method was added in ECMAScript 5, and it behaves quite differently than the other two.</p>
+
+<p>The first argument to bind() is the this value for the new function.</p>
+
+<p>All other arguments represent named parameters that should be permanently set in the new function.</p>
+
+<p>You can still pass in any parameters that aren’t permanently set later.</p>
+
+<p>The following code shows two examples that use bind().</p>
+
+<p>You create the sayNameForPerson1() function by binding the this value to person1, while sayNameForPerson2() binds this to person2 and binds the first parameter as “person2”.</p>
+
+<p><code>function sayNameForAll(label) {</code></p>
+
+<p><code>       console.log(label + ":" + this.name);</code></p>
+
+<p><code>}</code></p>
+
+<p><code>var person1 = {</code></p>
+
+<p><code>       name: "Nicholas"</code></p>
+
+<p><code>};</code></p>
+
+<p><code>var person2 = {</code></p>
+
+<p><code>       name: "Greg"</code></p>
+
+<p><code>};</code></p>
+
+<p>// create a function just for person1</p>
+
+<p><code>var sayNameForPerson1 = sayNameForAll.bind(person1);</code></p>
+
+<p><code>sayNameForPerson1("person1"); // outputs "person1:Nicholas"</code></p>
+
+<p>// create a function just for person2</p>
+
+<p><code>var sayNameForPerson2 = sayNameForAll.bind(person2, "person2");</code></p>
+
+<p><code>sayNameForPerson2(); // outputs "person2:Greg"</code></p>
+
+<p>// attaching a method to an object doesn’t change ‘this’</p>
+
+<p><code>person2.sayName = sayNameForPerson1;</code></p>
+
+<p><code>person2.sayName("person2"); // outputs "person2:Nicholas"</code></p>
+
+<h2 id="summary">Summary</h2>
+<p>JavaScript functions are unique in that they are also objects, meaning they can be accessed, copied, overwritten, and generally treated just like any other object value.</p>
+
+<p>The biggest difference between a JavaScript function and other objects is a special internal property, [[Call]], which contains the execution instructions for the function.</p>
+
+<p><strong>The typeof operator looks for this internal property on an object, and if it finds it, returns “function”</strong>.</p>
+
+<p><strong>There are two function literal forms: declarations and expressions</strong>.</p>
+
+<p>Function declarations contain the function name to the right of the function keyword and are hoisted to the top of the context in which they are defined.</p>
+
+<p>Function expressions are used where other values can also be used, such as assignment expressions, function parameters, or the return value of another function.</p>
+
+<p>Because functions are objects, there is a Function constructor.</p>
+
+<p>You can create new functions with the Function constructor, but this isn’t generally recommended because it can make your code harder to understand and debugging much more difficult.</p>
+
+<p>That said, you will likely run into its usage from time to time in situations where the true form of the function isn’t known until runtime.</p>
+
+<p>You need a good grasp of functions to understand how object- oriented programming works in JavaScript.</p>
+
+<p>Because JavaScript has no concept of a class, functions and other objects are all you have to work with to achieve aggregation and inheritance.</p>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/javascript/2015/02/15/primitive-and-reference-types-javascript" title="Primitive and Reference Types - Javascript">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/javascript/2015/02/22/constructors-and-prototypes" title="CONSTRUCTORS AND PROTOTYPES">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="" data-num-posts="5" data-width="580" data-colorscheme="light"></div>
+
+
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>18 February 2015</span></div>
+
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>4</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; javiosyc 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

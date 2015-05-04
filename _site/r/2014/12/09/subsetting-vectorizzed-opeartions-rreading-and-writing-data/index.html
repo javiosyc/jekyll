@@ -1,0 +1,474 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>subsetting, vectorizzed opeartions, rreading and writing data</title>
+    <meta name="description" content="">
+    <meta name="author" content="javiosyc">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/css/1.4.0/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">Javio</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>subsetting, vectorizzed opeartions, rreading and writing data <small>Supporting tagline</small></h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    
+<h2 id="subsetting">Subsetting</h2>
+
+<p>There are a number of operators that can be used to extract subsets of R objects.</p>
+
+<ul>
+  <li><strong>[</strong> always returns <strong>an object of the same class as the original</strong>; can be used to select <strong>more than one element</strong> (there is one exception)
+    <ul>
+      <li>numeric index
+        <ul>
+          <li><code>x[1]</code></li>
+          <li><code>x[1:4]</code></li>
+        </ul>
+      </li>
+      <li>logical index
+        <ul>
+          <li><code>x[x&gt; "a"]</code></li>
+          <li><code>u &lt;- x &gt; "a"</code>   <code>x[u]</code> </li>
+        </ul>
+      </li>
+      <li>
+        <p>exception</p>
+
+        <p><code>x &lt;- matrix (1:6,2,3)</code></p>
+
+        <p><code>x[1,2]</code></p>
+
+        <p>[1] 3  #a vector with that number in it</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>[[</strong> is used to extract elements of a <strong>list or a data frame</strong>; it can only be used to <strong>extract a single element</strong> and the class of the returned object will not necessarily be a list or data frame</p>
+  </li>
+  <li><strong>$</strong> is used to extract elements of a <strong>list or data frame by name</strong>; semantics are similar to hat of [[ </li>
+</ul>
+
+<h2 id="subsetting-a-matrix">Subsetting a Matrix</h2>
+<p>Matrices can be subsetted in the usual way with (i,j) type indices
+ <code>x[1,2]</code></p>
+
+<p>You don&#8217;t have to always specify both indices when subsetting a matrix.
+ <code>x[1,]</code>
+ <code>x[,2]</code></p>
+
+<p>By default, when a single element of a matrix is retrived, it is returned as a vector of lenght 1 rather a 1 * 1 matrix.</p>
+
+<p>This behavior can be turned off by setting <strong>drop = FALSE</strong></p>
+
+<p><code> x &lt;- matrix(1:6,2,3)</code></p>
+
+<p>` x[1,2]</p>
+
+<p>[1] 3</p>
+
+<p><code> x[1,2,drop =FALSE]</code></p>
+
+<pre><code>[,1]
+</code></pre>
+
+<p>[1,] 3</p>
+
+<p>Similarly, subsetting a single column or a single row will give you a vector, not a matrix (by default)</p>
+
+<p><code> x &lt;- matrix(1:6,2,3)</code></p>
+
+<p>` x[1,]</p>
+
+<p>[1] 1 3 5</p>
+
+<p><code> x[1,,drop =FALSE]</code></p>
+
+<pre><code>[,1] [,2] [,3]
+</code></pre>
+
+<p>[1,]  1    3    5</p>
+
+<h2 id="subsetting-lists">Subsetting Lists</h2>
+<pre><code>* the double bracket operator
+* the dollar sign operator
+* the single bracket operator
+</code></pre>
+
+<p><code>x &lt;- list (foo =1:4,bar = 0.6)</code></p>
+
+<p><code> x[1]</code>   # list</p>
+
+<p>$foo</p>
+
+<p>[1] 1 2 3 4</p>
+
+<p><code>x[[1]]</code>   # vector</p>
+
+<p>[1] 1 2 3 4</p>
+
+<p><code>x$bar</code>    # vector</p>
+
+<p>[1] 0.6</p>
+
+<p><code>x[["bar"]]</code> # vector</p>
+
+<p>[1] 0.6</p>
+
+<p><code>x["bar"]</code>  # list</p>
+
+<p>$bar</p>
+
+<p>[1] 0.6</p>
+
+<p>extract multiple elements</p>
+
+<p><code>x &lt;- list (foo=1:4,bar =0.6,baz="hello")</code></p>
+
+<p><code>x[c(1,3)]</code></p>
+
+<p>$foo</p>
+
+<p>[1] 1 2 3 4</p>
+
+<p>$baz</p>
+
+<p>[1] &#8220;hello&#8221;</p>
+
+<p>The <strong>[[</strong> operator can be used with computed indices; <strong>$</strong> can only be used with literal names.</p>
+
+<p><code>x &lt;- list (foo = 1:4, bar = 0.6,baz="hello")</code></p>
+
+<p><code>name &lt;- "foo"</code></p>
+
+<p><code>x[[name]]</code>		##computed index for &#8216;foo&#8217;</p>
+
+<p>[1] 1 2 3 4</p>
+
+<p><code>x$name</code>		## element &#8216;name&#8217; doesn&#8217;t exist!</p>
+
+<p>NULL</p>
+
+<p><code>x$foo</code></p>
+
+<p>[1] 1 2 3 4		## element &#8216;foo&#8217; does exist</p>
+
+<h2 id="subsetting-nested-elements-of-a-list">Subsetting Nested Elements of a List</h2>
+<p>The <strong>[[</strong> can take an integer sequence.</p>
+
+<p><code>x &lt;- list(a=list(10,12,4),b=c(3.13,2.81))</code></p>
+
+<p><code>x[[c(1,3))]</code></p>
+
+<p>[1] 14</p>
+
+<p><code>x[[1]][[3]]</code></p>
+
+<p>[1] 14</p>
+
+<p><code>x[[c(2,1)]]</code></p>
+
+<p>[1] 3.14</p>
+
+<h2 id="partial-matching">Partial Matching</h2>
+<p>Partial matching of names is allowed with <strong>[[ and $</strong></p>
+
+<p><code> x &lt;- list (aardvark = 1: 5)</code></p>
+
+<p><code>x$a</code></p>
+
+<p>[1] 1 2 3 4 5</p>
+
+<p><code>x[["a"]]</code></p>
+
+<p>NULL</p>
+
+<p><code>x[["a", exact =FALSE]]</code></p>
+
+<p>[1] 1 2 3 4 5</p>
+
+<h2 id="removing-na-values">Removing NA Values</h2>
+<p>A common task is to remove missing values (NAS).</p>
+
+<p><code> x &lt;- c (1,2,NA,4,NA,5)</code></p>
+
+<p><code> bad &lt;- is.na(x)</code></p>
+
+<p><code>x[!bad]</code></p>
+
+<p>[1] 1 2 4 5</p>
+
+<p>What if there are multiple things and you want to take the subset with no missing values?</p>
+
+<p><code>x &lt;- c(1,2,NA,4,NA,5)</code></p>
+
+<p><code>y &lt;- c("a","b",NA,"d",NA,"f")</code></p>
+
+<p><code>good &lt;- complete.cases(x,y)</code></p>
+
+<p><code>good</code></p>
+
+<p>[1] TRUE TRUE FALSE TRUE FALSE TRUE</p>
+
+<p><code>x[good]</code></p>
+
+<p>[1] 1 2 4 5</p>
+
+<p><code>y[good]</code></p>
+
+<p>[1] &#8220;a&#8221; &#8220;b&#8221; &#8220;d&#8221; &#8220;f&#8221;</p>
+
+<p>matrix</p>
+
+<p><code> airquality[1:6,]</code></p>
+
+<p><code>good &lt;- complete.cases(airquality)</code></p>
+
+<p><code>airquality[good,][1:6,]</code></p>
+
+<h2 id="vectorized-operations">Vectorized Operations</h2>
+<p>Many operations in R are vectorized making code more efficient, concise, and easier to read.</p>
+
+<p><code> x &lt;- 1:4; y &lt;- 6:9</code></p>
+
+<p><code> x + y</code></p>
+
+<p>[1] 7 9 11 13</p>
+
+<p><code>x &gt; 2</code></p>
+
+<p>[1] FALSE FALSE TRUE TRUE</p>
+
+<p><code>y==8</code></p>
+
+<p>[1] FALSE FALSE TRUE FALSE</p>
+
+<p><code>x * y</code></p>
+
+<p>[1] 6 14 24 36</p>
+
+<p><code>x / y</code></p>
+
+<p>[1] 0.16667 0.28571 0.37500 0.44444</p>
+
+<h2 id="vectorized-matrix-operations">Vectorized Matrix Operations</h2>
+
+<p>x &lt;- matrix(1:4, 2, 2); y &lt;- matrix(rep(10, 4), 2, 2)</p>
+
+<p><code>x * y ## element-wise multiplication</code></p>
+
+<p><code>x %*% y ## true matrix multiplication</code></p>
+
+<h2 id="reading-data">Reading Data</h2>
+
+<p>There are a few principal function reading data into R</p>
+
+<ul>
+  <li>
+    <p><code>read.table</code>, <code>read.csv</code>, for reading tabular data</p>
+  </li>
+  <li>
+    <p><code>readLines</code>, for reading lines of a text file</p>
+  </li>
+  <li>
+    <p><code>source</code>, for reading in R code files (inverse of dump)</p>
+  </li>
+  <li>
+    <p><code>dget</code>, for reading in R code files (inverse of dput)</p>
+  </li>
+  <li>
+    <p><code>load</code>, for reading in saved workspace</p>
+  </li>
+  <li>
+    <p>&#8216;unserialize&#8217;, for reading single R objects in binary form</p>
+  </li>
+</ul>
+
+<h2 id="writing-data">Writing Data</h2>
+
+<p>There are analogous functions for writing data to files</p>
+
+<ul>
+  <li>
+    <p><code>write.table</code></p>
+  </li>
+  <li>
+    <p><code>writeLines</code></p>
+  </li>
+  <li>
+    <p><code>dump</code></p>
+  </li>
+  <li>
+    <p><code>dput</code></p>
+  </li>
+  <li>
+    <p><code>save</code></p>
+  </li>
+  <li>
+    <p><code>serialize</code></p>
+  </li>
+</ul>
+
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/r/2014/12/09/basic-data-types-in-r" title="basic data types in R">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/angularjs/2014/12/10/custom-filters-for-angularjs" title="Custom filters for angularJS">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="" data-num-posts="5" data-width="580" data-colorscheme="light"></div>
+
+
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>09 December 2014</span></div>
+
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#R-ref">R <span>2</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; javiosyc 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

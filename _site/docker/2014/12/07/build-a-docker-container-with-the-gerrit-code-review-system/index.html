@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Build a Docker container with the gerrit code review system</title>
+    <meta name="description" content="">
+    <meta name="author" content="javiosyc">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/css/1.4.0/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">Javio</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Build a Docker container with the gerrit code review system <small>Supporting tagline</small></h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    
+<h2 id="build-on-top-of-ubuntu-trusty-1404-and-gerrit-285">Build on top of Ubuntu Trusty (14.04) and gerrit 2.8.5</h2>
+
+<p><a href="https://github.com/javiosyc/testdocker/tree/master/gerrit-docker">Dockerfile</a></p>
+
+<p><code>docker build -t javio/gerrit .</code></p>
+
+<h2 id="gen-all-projectsgit">gen All-Projects.git</h2>
+<p><code>docker run  -p 8099:8080 -p 49418:29418 -d -t --name gerrit javio/gerrit</code></p>
+
+<p><code>docker run --rm --volumes-from gerrit -v $(pwd):/home/gerrit/gerrit/git_bk/ ubuntu cp -r /home/gerrit/gerrit/git/. /home/gerrit/gerrit/git_bk</code></p>
+
+<h2 id="backup-git-repository">Backup Git Repository</h2>
+<p><code>docker run --rm --volumes-from gerrit -v $(pwd):/home/gerrit/gerrit/git_bk/ ubuntu cp -r /home/gerrit/gerrit/git/. /home/gerrit/gerrit/git_bk</code></p>
+
+<h2 id="run-gerrit">Run Gerrit</h2>
+<p><code>docker run -p 8099:8080 -p 49418:29418 -d -t --name gerrit -v $(pwd):/home/gerrit/gerrit/git/ javio/gerrit</code></p>
+
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/ubuntu/2014/12/01/personal-package-archives-for-ubuntu" title="PPA for Ubuntu">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/r/2014/12/09/basic-data-types-in-r" title="basic data types in R">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="" data-num-posts="5" data-width="580" data-colorscheme="light"></div>
+
+
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>07 December 2014</span></div>
+
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#docker-ref">docker <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#git-ref">git <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#gerrit-ref">gerrit <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; javiosyc 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

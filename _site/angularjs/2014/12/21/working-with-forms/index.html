@@ -1,0 +1,857 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Working with Forms</title>
+    <meta name="description" content="">
+    <meta name="author" content="javiosyc">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/css/1.4.0/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">Javio</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Working with Forms <small>Supporting tagline</small></h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    
+<table>
+  <tbody>
+    <tr>
+      <td>Problem</td>
+      <td>Solution</td>
+      <td>Listing</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="using-form-elements-with-two-way-data-bindings">Using Form Elements with Two-Way Data Bindings</h3>
+
+<p>..</p>
+
+<p><code>&lt;td&gt;</code></p>
+
+<blockquote>
+  <p><code>&lt;input type="checkbox" ng-model="item.complete"</code></p>
+</blockquote>
+
+<p><code>&lt;/td&gt;</code></p>
+
+<h3 id="implicitly-creating-model-properties">Implicitly Creating Model Properties</h3>
+
+<p>The previous example operates on model properties that I explicitly defined when I set up the controller, but you can also <strong>use two-way data bindings to implicitly create properties in the data model</strong>—a feature that is useful when you are using form elements to gather data from the user in order to create a new object or property in the data model.</p>
+
+<p><code>&lt;div class="row"&gt;</code></p>
+
+<blockquote>
+  <p><code>&lt;div class="col-xs-6"&gt;</code></p>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>&lt;div class="well"&gt;</code></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>&lt;div class="form-group row"&gt;</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <p><code>&lt;label for="actionText"&gt;Action:&lt;/label&gt;</code></p>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <p><code>&lt;input id="actionText" class="form-control"</code></p>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <p><code>ng-model="newTodo.action"&gt;</code></p>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>&lt;/div&gt;</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>&lt;div class="form-group row"&gt;</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <p><code>&lt;label for="actionLocation"&gt;Location:&lt;/label&gt;</code></p>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <p><code>&lt;select id="actionLocation" class="form-control"</code></p>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <p><code>ng-model="newTodo.location"&gt;</code></p>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <p><code>&lt;option&gt;Home&lt;/option&gt;</code></p>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <p><code>&lt;option&gt;Office&lt;/option&gt;</code></p>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <p><code>&lt;option&gt;Mall&lt;/option&gt;</code></p>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <p><code>&lt;/select&gt;</code></p>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>&lt;/div&gt;</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>&lt;button class="btn btn-primary btn-block"</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <p><code>ng-click="addNewItem(newTodo)"&gt;</code></p>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <p><code>Add</code></p>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>&lt;/button&gt;</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>&lt;/div&gt;</code></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <p><code>&lt;/div&gt;</code></p>
+</blockquote>
+
+<p>…</p>
+
+<p><code>&lt;input id="actionText" class="form-control" ng-model="newTodo.action"&gt;</code></p>
+
+<p>…</p>
+
+<p>and this select element:</p>
+
+<p><code>&lt;select id="actionLocation" class="form-control" ng-model="newTodo.location"&gt;</code></p>
+
+<blockquote>
+  <blockquote>
+    <p><code>&lt;option&gt;Home&lt;/option&gt;</code></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>&lt;option&gt;Office&lt;/option&gt;</code></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>&lt;option&gt;Mall&lt;/option&gt;</code></p>
+  </blockquote>
+</blockquote>
+
+<p><code>&lt;/select&gt;</code></p>
+
+<p>They both use the ng-model directive, <strong>configured to update model properties that I have not explicitly defined: the newTodo.action and newTodo.location properties</strong>.</p>
+
+<h3 id="checking-that-the-data-model-object-has-been-created">Checking That the Data Model Object Has Been Created</h3>
+
+<p>Using an implicitly defined object on which properties are defined has some benefits, <strong>such as being able to call the behavior that processes the data in a clean and simple way</strong>.</p>
+
+<p>But it has a drawback as well, which you can see <strong>if you reload the forms.html file in the browser and click the Add button without editing the input element or selecting an option for the select element</strong>.</p>
+
+<p>The interface won’t change when you click the button, but you’ll see an error message like this one in the JavaScript console:</p>
+
+<p>TypeError: Cannot read property ‘action’ of undefined</p>
+
+<p><strong>The problem is that my controller behavior is trying to access properties on an object that AngularJS won’t create until the one of the form controls has been modified, triggering the ng-model directive.</strong></p>
+
+<p>When relying on implicit definition, <strong>it is important to write your code to cater for the possibility that the objects or properties you are going to use do not yet exist</strong>.</p>
+
+<p><code>$scope.addNewItem = function (newItem) {</code></p>
+
+<blockquote>
+  <p><code>if (angular.isDefined(newItem) &amp;&amp; angular.isDefined(newItem.action) &amp;&amp; angular.isDefined(newItem.location)) {</code></p>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>$scope.todos.push({</code></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>action: newItem.action + " (" + newItem.location + ")",</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <p><code>complete: false</code></p>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <p><code>}); }</code></p>
+</blockquote>
+
+<p><code>};</code></p>
+
+<h2 id="validating-forms">Validating Forms</h2>
+
+<h3 id="performing-basic-form-validation">Performing Basic Form Validation</h3>
+
+<p>AngularJS provides basic form validation by honoring the standard HTML element attributes, such as type and required, and adding some directives.</p>
+
+<h3 id="adding-the-form-element">Adding the Form Element</h3>
+
+<p>…</p>
+
+<p><code>&lt;form name="myForm" novalidate ng-submit="addUser(newUser)"&gt;</code></p>
+
+<p>There are some attributes you must set on the form element to get the best results from AngularJS form validation.</p>
+
+<p>The first is the <strong>name attribute</strong>; the directive that replaces the form element defines some useful variables that report on the validity of the form data and accesses these values via the value of the name property.</p>
+
+<p><strong>To disable the browser validation support and enable the AngularJS features</strong>, I have <strong>added the novalidate attribute to my form element</strong>, which is defined by the HTML5 specification and tells the browser not to try to validate the form itself, allowing AngularJS to work unhindered.</p>
+
+<p>The last addition to the <strong>form element is the ng-submit directive</strong>.</p>
+
+<p>As a reminder, this directive specifies a custom response to a submit event, which is triggered when the user submits the form (in this example by clicking the OK button).</p>
+
+<h3 id="using-validation-attributes">Using Validation Attributes</h3>
+
+<p><code>&lt;input name="userEmail" type="email" class="form-control"</code>
+&gt;<code>required ng-model="newUser.email"&gt;</code></p>
+
+<p>The type Attribute Values for Input Elements</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Type Value</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>checkbox</td>
+      <td>Creates a check box (pre-dates HTML5)</td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>Creates a text input that accepts an e-mail address (new in HTML5)</td>
+    </tr>
+    <tr>
+      <td>number</td>
+      <td>Creates a text input that accepts a number address (new in HTML5)</td>
+    </tr>
+    <tr>
+      <td>radio</td>
+      <td>Creates a radio button (pre-dates HTML5)</td>
+    </tr>
+    <tr>
+      <td>text</td>
+      <td>Creates a standard text input that accepts any value (pre-dates HTML5)</td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td>Creates a text input that accepts a URL (new in HTML5)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>…</p>
+
+<p><code>&lt;input name="userName" type="text" class="form-control" required ng-model="newUser.name"&gt;</code></p>
+
+<p>…</p>
+
+<p>…</p>
+
+<p><code>&lt;input name="agreed" type="checkbox" ng-model="newUser.agreed" required&gt;</code></p>
+
+<p>…</p>
+
+<h3 id="monitoring-the-validity-of-the-form">Monitoring the Validity of the Form</h3>
+
+<p>The directives that AngularJS uses to replace the standard form elements define special variables that you can use to check the validation state of individual elements or the form as a whole.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Variable</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>$pristine</td>
+      <td>Returns true if the user has <strong>not interacted</strong> with the element/form</td>
+    </tr>
+    <tr>
+      <td>$dirty</td>
+      <td>Returns true if the user has interacted with the element/form</td>
+    </tr>
+    <tr>
+      <td>$valid</td>
+      <td>Returns true if the contents of the element/form are valid</td>
+    </tr>
+    <tr>
+      <td>$invalid</td>
+      <td>Returns true if the contents of the element/form are invalid</td>
+    </tr>
+    <tr>
+      <td>$error</td>
+      <td>Provides details of validation errors—see the “Providing Form Validation Feedback” section for details</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>…</p>
+
+<p><code>&lt;div&gt;Valid: &lt;/div&gt;</code></p>
+
+<p>…</p>
+
+<p>…</p>
+
+<p><code>&lt;button type="submit" class="btn btn-primary btn-block" ng-disabled="myForm.$invalid"&gt;</code></p>
+
+<p><code>OK &lt;/button&gt;</code></p>
+
+<p>…</p>
+
+<h2 id="providing-form-validation-feedback">Providing Form Validation Feedback</h2>
+
+<p>AngularJS performs validation checks as the user is interacting with the form elements, and we can use the information that these checks provide to give the user meaningful feedback in real time, rather than waiting until they are ready to submit the data.</p>
+
+<h3 id="using-css-to-provide-feedback">Using CSS to Provide Feedback</h3>
+
+<p><strong>Each time the user interacts with an element</strong> that is being validated, AngularJS checks its state to see whether it is valid.</p>
+
+<p>The validity checks depend on the element type and how it has been configured.</p>
+
+<p>AngularJS reports on the outcome of these validation checks by adding and removing the elements it validates from a set of classes, which can be combined with CSS to provide feedback to the user by styling the element.</p>
+
+<p>AngularJS uses four basic classes:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Variable</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>ng-pristine</td>
+      <td>Elements that the user has not interacted are added to this class.</td>
+    </tr>
+    <tr>
+      <td>ng-dirty</td>
+      <td>Elements that the user has interacted are added to this class.</td>
+    </tr>
+    <tr>
+      <td>ng-valid</td>
+      <td>Elements that are valid are in this class.</td>
+    </tr>
+    <tr>
+      <td>ng-invalid</td>
+      <td>Elements that are not valid are in this class.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>…</p>
+
+<p><code>&lt;style&gt;</code>
+&gt;<code>form .ng-invalid.ng-dirty { background-color: lightpink; }</code></p>
+
+<blockquote>
+  <p><code>form .ng-valid.ng-dirty { background-color: lightgreen; }</code></p>
+</blockquote>
+
+<blockquote>
+  <p><code>span.summary.ng-invalid { color: red; font-weight: bold; }</code></p>
+</blockquote>
+
+<blockquote>
+  <p><code>span.summary.ng-valid { color: green; }</code></p>
+</blockquote>
+
+<p><code>&lt;/style&gt;</code></p>
+
+<p><code>&lt;div class="well"&gt;</code></p>
+
+<blockquote>
+  <p><code>Message: {{message}}</code></p>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>&lt;div&gt;</code></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>Valid:</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <p><code>&lt;span class="summary" ng-class="myForm.$valid ? 'ng-valid' : 'ng-invalid'"&gt;</code></p>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <p><code>{{myForm.$valid}}</code></p>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <p><code>&lt;/span&gt;</code></p>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>&lt;/div&gt;</code></p>
+  </blockquote>
+</blockquote>
+
+<p><code>&lt;/div&gt;</code></p>
+
+<h3 id="providing-feedback-for-specific-validation-constraints">Providing Feedback for Specific Validation Constraints</h3>
+
+<p><code>&lt;style&gt;</code></p>
+
+<p><code>form .ng-invalid-required.ng-dirty { background-color: lightpink; }</code></p>
+
+<p><code>form .ng-invalid-email.ng-dirty { background-color:lightgoldenrodyellow; }</code></p>
+
+<p><code>form .ng-valid.ng-dirty { background-color: lightgreen; }</code></p>
+
+<p><code>span.summary.ng-invalid {color: red; font-weight: bold; }</code></p>
+
+<p><code>span.summary.ng-valid { color: green }</code></p>
+
+<p><code>&lt;/style&gt;</code></p>
+
+<p>AngularJS will add the element to the <strong>ng-valid-required</strong> and <strong>ng-invalid-required classes</strong> to signal compliance with the required attribute and <em>*use the ng-valid-email and ng-invalid-email classes</em> to single compliance with the formatting constraint.</p>
+
+<h3 id="using-the-special-variables-to-provide-feedback">Using the Special Variables to Provide Feedback</h3>
+
+<p>AngularJS provides a set of special variables for form validation that you can use in views to check the validation status of individual elements and of the form as a whole.</p>
+
+<p>I used these variables to control the disabled state of a button in earlier examples by applying the ng-disabled directive, but they can also be used to control visibility of elements that give feedback to the user by applying them with the ng-show directive.</p>
+
+<p>..</p>
+
+<p><code>div.error {color: red; font-weight: bold;}</code></p>
+
+<p>…</p>
+
+<p><code>&lt;div class="error"</code></p>
+
+<blockquote>
+  <p><code>ng-show="myForm.userEmail.$invalid &amp;&amp; myForm.userEmail.$dirty"&gt;</code></p>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>&lt;span ng-show="myForm.userEmail.$error.email"&gt;</code></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>Please enter a valid email address</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>&lt;/span&gt;</code></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>&lt;span ng-show="myForm.userEmail.$error.required"&gt;</code></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>Please enter a value</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>&lt;/span&gt;</code></p>
+  </blockquote>
+</blockquote>
+
+<p><code>&lt;/div&gt;</code></p>
+
+<h3 id="reducing-the-number-of-feedback-elements">Reducing the Number of Feedback Elements</h3>
+
+<p><code>$scope.getError = function (error) {</code></p>
+
+<blockquote>
+  <p><code>if (angular.isDefined(error)) {</code></p>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>if (error.required) {</code></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>return "Please enter a value";</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>} else if (error.email) {</code></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>return "Please enter a valid email address";</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>}}</code></p>
+  </blockquote>
+</blockquote>
+
+<p><code>&lt;div class="error" ng-show="myForm.userEmail.$invalid &amp;&amp; myForm.userEmail.$dirty"&gt;</code></p>
+
+<p><code>{{getError(myForm.userEmail.$error)}}</code></p>
+
+<p><code>&lt;/div&gt;</code></p>
+
+<h3 id="deferring-validation-feedback">Deferring Validation Feedback</h3>
+
+<p>}
+}</p>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/angularjs/2014/12/17/using-element-and-event-directives" title="Using Element and Event Directives">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/swing/2015/02/04/creating-a-basic-swing-application" title="creating a basic swing application">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="" data-num-posts="5" data-width="580" data-colorscheme="light"></div>
+
+
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>21 December 2014</span></div>
+
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#AngularJS form-ref">AngularJS form <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; javiosyc 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,827 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>AngularJS module</title>
+    <meta name="description" content="">
+    <meta name="author" content="javiosyc">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/css/1.4.0/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">Javio</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>AngularJS module <small>Supporting tagline</small></h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    
+<h2 id="working-with-modules">Working with Modules</h2>
+
+<h3 id="modules-are-the-top-level-components-for-angularjs-applications">Modules are the top-level components for AngularJS applications.</h3>
+
+<p>Modules have three main roles in an AngularJS app</p>
+
+<ul>
+  <li>
+    <p>To associate an AngularJS application with a region of an HTML document</p>
+  </li>
+  <li>
+    <p>To act as a gateway to key AngularJS framework features</p>
+  </li>
+  <li>
+    <p>To help organize the code and components in an AngularJS application</p>
+  </li>
+</ul>
+
+<h3 id="setting-the-boundaries-of-an-angularjs-application">Setting the Boundaries of an AngularJS Application</h3>
+
+<p>The first step when creating an AngularJS app is <strong>to define a module and associate it with a region of the HTML document</strong>.</p>
+
+<p>creates the module for the example app.</p>
+
+<ol>
+  <li>Creating a Module
+<code>var myApp = angular.module("exampleApp", []);</code></li>
+</ol>
+
+<blockquote>
+  <p>module method supports the three arguments</p>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>name</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>The name of the new module</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>The convention is to give the module a name with the suffix App</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>requires</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>The set of modules that this module depends on</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>config</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>The configuration for the module, equivalent to calling the Module.config method—see the “Working with the Module Life Cycle” section</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<ol>
+  <li>Applying the ng-app Attribute in the HTML File</li>
+</ol>
+
+<p><code>&lt;html ng-app="exampleApp"&gt;</code></p>
+
+<blockquote>
+  <blockquote>
+    <p>The ng-app attribute is used <em>during the bootstrap phase</em> of the AngularJS life cycle.</p>
+  </blockquote>
+</blockquote>
+
+<h3 id="using-modules-to-define-angularjs-components">Using Modules to Define AngularJS Components</h3>
+<p>The angular.module method returns a <em>Module object</em> that provides access to the most important features that AngularJS provides via the properties and methods.</p>
+
+<p>The Members of the Module Object</p>
+
+<blockquote>
+  <ul>
+    <li>animation(name, factory)</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>Supports the animation feature</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>config(callback)</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>Registers a function that can be used to configure a module when it is loaded.</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>constant(key, value)</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>Defines a service that returns a constant value.</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li><strong>controller(name, constructor)</strong></li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>Creates a controller. </p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li><strong>directive(name, factory)</strong></li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>Creates a directive, which extends the standard HTML vocabulary.</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li><strong>factory(name, provider)</strong></li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>Creates a service.</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li><strong>filter(name, factory)</strong></li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>Creates a filter that formats data for display to the user.</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li><strong>provider(name, type)</strong></li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>Creates a service.</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>name</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>Returns the name of the module.</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>run(callback)</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>Registers a function that is invoked after AngularJS has loaded and configured all of the modules.</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>service(name, constructor)</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>Creates a service.</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>value(name, value)</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>Defines a service that returns a constant value.</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<p>The methods defined by the Module object fall into three broad categories</p>
+
+<ul>
+  <li>
+    <p><strong>define components for an AngularJS application</strong></p>
+  </li>
+  <li>
+    <p><strong>those that make it easier to create those building blocks</strong></p>
+  </li>
+  <li>
+    <p><strong>those that help manage the AngularJS life cycle</strong></p>
+  </li>
+</ul>
+
+<h3 id="defining-controllers">Defining Controllers</h3>
+
+<p>To act as <strong>a conduit between the model and the views</strong>.</p>
+
+<p>Most AngularJS projects will have multiple controllers, each of which delivers the data and logic required for one aspect of the application.</p>
+
+<p>Controllers are defined using the Module.controller method, which takes two arguments:</p>
+
+<ul>
+  <li>
+    <p>the name of the controller</p>
+  </li>
+  <li>
+    <p><strong>a factory function</strong>, which is used to set up the controller and get it ready for use</p>
+  </li>
+</ul>
+
+<p><code>var myApp = angular.module("exampleApp", []);</code></p>
+
+<blockquote>
+  <p><code>myApp.controller("dayCtrl", function (</code><strong>$scope</strong><code>) {</code></p>
+</blockquote>
+
+<blockquote>
+  <p><code>// controller statements will go here</code></p>
+</blockquote>
+
+<p><code>});</code></p>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>The convention for controller names is to use the suffix <strong>Ctrl</strong>.</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>The function passed to the Module.controller method is used to <strong>declare the controller’s dependencies</strong>, which are the AngularJS components that the <strong>controller requires</strong>.</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>AngularJS provides some <strong>built-in services and features</strong> that are specified using argument names that <strong>start with the $ symbol</strong>.</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<p>***Applying Controllers to Views</p>
+
+<p>The Controllers must be applied to HTML elements so that AngularJS knows which part of an HTML document forms the view for a given controller.</p>
+
+<p><code>&lt;body&gt;</code></p>
+
+<blockquote>
+  <p><code>&lt;div class="panel" ng-controller="dayCtrl"&gt;</code></p>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>&lt;div class="page-header"&gt;</code></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>&lt;h3&gt;AngularJS App&lt;/h3&gt;</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>&lt;/div&gt;</code></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <p><code>&lt;h4&gt;Today is &lt;/h4&gt;</code></p>
+</blockquote>
+
+<blockquote>
+  <p><code>&lt;/div&gt;</code></p>
+</blockquote>
+
+<p><code>&lt;/body&gt;</code> </p>
+
+<p>The $scope component that I specified as an argument when I <strong>created the controller is used to provide the view with data</strong>, and only the data configured <strong>via $scope can be used in expressions and data bindings</strong>.</p>
+
+<h3 id="creating-multiple-views">Creating Multiple Views</h3>
+
+<p><strong>Each controller can support multiple views</strong>, which allows the same data to be presented in different ways or for closely related data to be created and managed efficiently.</p>
+
+<h3 id="creating-multiple-controllers">Creating Multiple Controllers</h3>
+
+<p><code>var myApp = angular.module("exampleApp", []);</code></p>
+
+<p><code>myApp.controller("dayCtrl", function ($scope) {</code></p>
+
+<blockquote>
+  <p><code>...</code></p>
+</blockquote>
+
+<p><code>}</code></p>
+
+<p><code>myApp.controller("tomorrowCtrl", function ($scope) {</code></p>
+
+<blockquote>
+  <p><code>...</code></p>
+</blockquote>
+
+<p><code>}</code></p>
+
+<p><code>...</code></p>
+
+<p><code>&lt;div class="panel"&gt;</code></p>
+
+<blockquote>
+  <p><code>&lt;div class="page-header"&gt;</code></p>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>&lt;h3&gt;AngularJS App&lt;/h3&gt;</code></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <p><code>&lt;/div&gt;</code></p>
+</blockquote>
+
+<blockquote>
+  <p><code>&lt;h4 ng-controller="dayCtrl"&gt;Today is &lt;/h4&gt;</code></p>
+</blockquote>
+
+<blockquote>
+  <p><code>&lt;h4 ng-controller="tomorrowCtrl"&gt;Tomorrow is &lt;/h4&gt;</code></p>
+</blockquote>
+
+<p><code>&lt;/div&gt;</code></p>
+
+<p>Notice how I am able to use the day property in <strong>both views without the values interfering with each other</strong>.</p>
+
+<p><strong>Each controller has its own part of the overall application scope</strong>, and the day property of the dayCtrl controller is isolated from the one defined by the tomorrowCtrl controller.</p>
+
+<h3 id="defining-directives">Defining Directives</h3>
+
+<p>Directives are the most powerful AngularJS feature because they <strong>extend and enhance HTML to create rich web applications</strong>.</p>
+
+<p>The short version is that custom directives are created via the Module.directive method.</p>
+
+<p><code>myApp.directive("highlight", function () {</code></p>
+
+<blockquote>
+  <p><code>return function (scope, element, attrs) {</code></p>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>if (scope.day == attrs["highlight"]) {</code></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>element.css("color", "red");</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>}</code></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <p><code>}</code></p>
+</blockquote>
+
+<p><code>});</code></p>
+
+<p><code>&lt;h4 ng-controller="dayCtrl" </code><strong>highlight=”Monday”</strong><code>&gt;</code></p>
+
+<blockquote>
+  <p><code>Today is </code></p>
+</blockquote>
+
+<p><code>&lt;/h4&gt;</code></p>
+
+<h3 id="applying-directives-to-html-elements">Applying Directives to HTML Elements</h3>
+
+<p>…</p>
+
+<p><code>&lt;h4 ng-controller="dayCtrl" </code><strong><code>highlight="Monday"&gt;</code></strong></p>
+
+<p>…</p>
+
+<p>My custom directive is called <strong>highlight</strong>, and it is applied as an attribute.</p>
+
+<p>I have set the value of the highlight attribute to be <strong>Monday</strong>.</p>
+
+<p>The factory function I passed to the directive method is called when AngularJS encounters the highlight attribute in the HTML.</p>
+
+<p>The directive function that the factory function creates is invoked by AngularJS and is <strong>passed three arguments</strong>:</p>
+
+<ul>
+  <li>the scope for the view</li>
+</ul>
+
+<blockquote>
+  <blockquote>
+    <p>The scope argument lets me inspect the data that is available in the view; in this case, it allows me to get the value of the day property.</p>
+  </blockquote>
+</blockquote>
+
+<ul>
+  <li>the element to which the directive has been applied</li>
+</ul>
+
+<blockquote>
+  <blockquote>
+    <p>The attrs argument provides me with a complete set of the attributes that have been applied to the element, including the attribute that applies the directive</p>
+  </blockquote>
+</blockquote>
+
+<ul>
+  <li>the attributes of that element.</li>
+</ul>
+
+<blockquote>
+  <blockquote>
+    <p><strong>The element argument is a jqLite object</strong>, which is the cut-down version of jQuery that is included with AngularJS.</p>
+  </blockquote>
+</blockquote>
+
+<h3 id="defining-filters">Defining Filters</h3>
+
+<p>Filters are used in views to <strong>format the data displayed to the user</strong>.</p>
+
+<p><strong>Once defined, filters can be used throughout a module</strong>, which means you can use them to ensure consistency in data presentation across multiple controllers and views.</p>
+
+<p><code>myApp.filter("dayName", function () {</code></p>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday","Thursday", "Friday", "Saturday"];</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>return function (input) {</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <p><code>return angular.isNumber(input) ? dayNames[input] : input;</code></p>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>};</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<p><code>});</code></p>
+
+<p>…</p>
+
+<p><code>&lt;h4 ng-controller="dayCtrl" highlight="Monday"&gt;</code></p>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>Today is { {day || "(unknown)" | dayName} }</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<p><code>&lt;/h4&gt;</code></p>
+
+<p>The <strong>filter method</strong> is used to define a filter, and the arguments:</p>
+
+<ul>
+  <li>
+    <p>the <strong>name of the new filter</strong></p>
+  </li>
+  <li>
+    <p><strong>a factory function</strong> that will create the filter when invoked.</p>
+  </li>
+</ul>
+
+<p>Filters are themselves functions, which receive a data value and format it so it can be displayed.</p>
+
+<h3 id="applying-filters">Applying Filters</h3>
+
+<p>Filters are applied in <strong>template expressions contained in views</strong>.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>The data binding or expression is followed by a <strong>bar</strong> (**the</td>
+      <td>character<strong>) and then **the name of the filter</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code>&lt;h4 ng-controller="dayCtrl" highlight="Monday"&gt;</code></p>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>Today is { {day || "(unknown)" | dayName} }</code></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<p><code>&lt;/h4&gt;</code></p>
+
+<h3 id="defining-services">Defining Services</h3>
+
+<p>Services are <strong>singleton objects</strong> that provide any functionality that you want to use throughout an application.</p>
+
+<p>Three of the methods defined by the Module object are used to create services in different ways: <strong>service, factory, and provider</strong>.</p>
+
+<h3 id="defining-values">Defining Values</h3>
+
+<p>The Module.value method lets you <strong>create services that return fixed values and objects</strong>.</p>
+
+<p>This may seem like an odd thing to do, but it means you can use dependency injection for any value or object, not just the ones you create using module methods like service and filter.</p>
+
+<h3 id="using-modules-to-organize-code">Using Modules to Organize Code</h3>
+
+<p>Any AngularJS module can rely on components defined in other modules, and this is a feature that makes it easier to organize the code in a complex application. </p>
+
+<p>One common convention is to organize your application into modules that have <strong>the same type of component</strong> and to make it clear which building block a module contains by using the main module’s name and appending the block type.</p>
+
+<h3 id="working-with-the-module-life-cycle">Working with the Module Life Cycle</h3>
+
+<p>The <strong>Module.config and Module.run</strong> methods register functions that are <strong>invoked at key moments in the life cycle of an AngularJS app</strong>.</p>
+
+<p>A function passed to the <strong>config method</strong> is invoked when <strong>the current module has been loaded</strong>,</p>
+
+<p>and a function passed to the <strong>run method</strong> is <strong>invoked when all modules have been loaded</strong>.</p>
+
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/angularjs/2014/12/10/custom-filters-for-angularjs" title="Custom filters for angularJS">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/angularjs/2014/12/14/facotry-and-worker-functions" title="Facotry and worker functions">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="" data-num-posts="5" data-width="580" data-colorscheme="light"></div>
+
+
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>13 December 2014</span></div>
+
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#AngularJS-ref">AngularJS <span>5</span></a></li>
+     
+    	<li><a href="/tags.html#modules-ref">modules <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; javiosyc 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

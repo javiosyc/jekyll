@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Facotry and worker functions</title>
+    <meta name="description" content="">
+    <meta name="author" content="javiosyc">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/css/1.4.0/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">Javio</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Facotry and worker functions <small>Supporting tagline</small></h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    
+<h3 id="factory-and-worker-functions">FACTORY AND WORKER FUNCTIONS</h3>
+
+<p>These are often <strong>factory functions</strong>, so called because they are <strong>responsible for creating the object that AngularJS will employ to perform the work itself</strong>.</p>
+
+<p>Often, factory functions will return <strong>a worker function</strong>, which is to say that the object that AngularJS will use to perform some work is a function, too.</p>
+
+<p>The second argument to the directive method is a factory function</p>
+
+<p>…</p>
+
+<p>myApp.directive(“highlight”, <strong>function</strong> () {</p>
+
+<blockquote>
+  <p><strong>return</strong> function (scope, element, attrs) {</p>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p>if (scope.day == attrs[“highlight”]) {</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>element.css(“color”, “red”);</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p>}</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <p>}</p>
+</blockquote>
+
+<p>});</p>
+
+<p>The return statement in the factory function returns another function, which AngularJS will <strong>invoke each time it needs to apply the directive</strong>, and this is the <strong>worker function</strong>:</p>
+
+<p>…</p>
+
+<p>myApp.directive(“highlight”, function () {</p>
+
+<blockquote>
+  <p>return **function (scope, element, attrs) {</p>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p>if (scope.day == attrs[“highlight”]) {**</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><strong>element.css(“color”, “red”);</strong></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><strong>}</strong></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <p><strong>}</strong></p>
+</blockquote>
+
+<p>});</p>
+
+<p>AngularJS will <strong>call the factory function when it wants to set up the building block</strong> and then <strong>calls the worker function when it needs to apply the building block</strong>, and these <strong>three events won’t occur in an immediate sequence</strong> (in other words, other Module methods will be called before your factory function is invoked, and other factory functions will be invoked before your worker function is called).</p>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/angularjs/2014/12/13/angularjs-module" title="AngularJS module">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/angularjs/2014/12/16/using-binding-and-template-directives" title="Using Binding and Template Directives">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="" data-num-posts="5" data-width="580" data-colorscheme="light"></div>
+
+
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>14 December 2014</span></div>
+
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#AngularJS-ref">AngularJS <span>5</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; javiosyc 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

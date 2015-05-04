@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>creating a basic swing application</title>
+    <meta name="description" content="">
+    <meta name="author" content="javiosyc">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/css/1.4.0/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">Javio</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>creating a basic swing application <small>Supporting tagline</small></h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    
+<h2 id="why-to-use-swingutilitiesinvokelater-in-main-method">Why to use SwingUtilities.invokeLater in main method?</h2>
+
+<h3 id="the-docs-explain-why-from-initial-threadshttpdocsoraclecomjavasetutorialuiswingconcurrencyinitialhtml">The docs explain why. <a href="http://docs.oracle.com/javase/tutorial/uiswing/concurrency/initial.html">From Initial Threads</a></h3>
+
+<p>Why does not the initial thread simply create the GUI itself? Because almost all code that creates or interacts with Swing components must run on the event dispatch thread.</p>
+
+<h3 id="from-the-event-dispatch-threadhttpdocsoraclecomjavasetutorialuiswingconcurrencydispatchhtml"><a href="http://docs.oracle.com/javase/tutorial/uiswing/concurrency/dispatch.html">From The Event Dispatch Thread</a></h3>
+
+<p>Some Swing component methods are labelled &#8220;thread safe&#8221; in the API specification; these can be safely invoked from any thread. All other Swing component methods must be invoked from the event dispatch thread.</p>
+
+<p>Programs that ignore this rule may function correctly most of the time, but are subject to unpredictable errors that are difficult to reproduce.</p>
+
+<p><code>SwingUtilities.invokeLater(new Runnable() {</code></p>
+
+<p><code>	public void run() {</code></p>
+
+<p><code>		JFrame frame = new JFrame("Hello World");</code></p>
+
+<p><code>		frame.setSize(600, 500);</code></p>
+
+<p><code>		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</code></p>
+
+<p><code>		frame.setVisible(true);</code></p>
+
+<p><code>	}</code></p>
+
+<p><code>});</code></p>
+
+<h3 id="application-startup-code">Application startup code</h3>
+
+<p>There&#8217;s one place where it&#8217;s very easy to forget that we need SwingUtilities.invokeLater(), and <strong>that&#8217;s on application startup</strong>.</p>
+
+<p><strong>Our applications main() method</strong> will always be called by <strong>a special &#8220;main&#8221; thread that the VM starts up for us</strong>.</p>
+
+<p><strong>And this main thread is not the event dispatch thread!</strong> So:</p>
+
+<p>The code that initialises our GUI must also take place in an invokeLater().</p>
+
+<p>So our initial main() method should look something like this:</p>
+
+<pre><code>public class MyApplication extends JFrame {
+
+	public static void main(String[] args) {
+
+		SwingUtilities.invokeLater(new Runnable() {
+
+			public void run() {
+
+				MyApplication app = new MyApplication();
+
+				app.setVisible(true);
+
+			}
+
+		});
+	}
+
+	private MyApplication() {
+
+		// create UI here: add buttons, actions etc
+
+	}
+
+}
+</code></pre>
+
+<h2 id="a-visual-guide-to-layout-managershttpdocsoraclecomjavasetutorialuiswinglayoutvisualhtml"><a href="http://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html">A Visual Guide to Layout Managers</a></h2>
+
+<h3 id="several-awt-and-swing-classes-provide-layout-managers-for-general-use">Several AWT and Swing classes provide layout managers for general use:</h3>
+
+<p>1.BorderLayout (Every content pane is initialized to use a BorderLayout.)</p>
+
+<p>2.BoxLayout</p>
+
+<p>3.CardLayout</p>
+
+<p>4.FlowLayout</p>
+
+<p>5.GridBagLayout</p>
+
+<p>6.GridLayout</p>
+
+<p>7.GroupLayout</p>
+
+<p>8.SpringLayout</p>
+
+<p>&#8216;public class MainFrame extends JFrame { &#8216;</p>
+
+<p>&#8217;&#8230;&#8217;</p>
+
+<p>&#8217;	public MainFrame() {&#8216;</p>
+
+<p>&#8217;	&#8230;&#8217;</p>
+
+<p>&#8217;		setLayout(new BorderLayout());&#8217;</p>
+
+<p>&#8217;	&#8230;&#8217;</p>
+
+<p>&#8217;		add(textArea, BorderLayout.CENTER);&#8217;</p>
+
+<p>&#8217;		add(btn, BorderLayout.SOUTH);&#8217;</p>
+
+<p>&#8217;	}&#8217;</p>
+
+<p>&#8217;}&#8217;</p>
+
+<h3 id="the-observer-pattern">The Observer pattern</h3>
+
+<p>In Design Patterns, the authors describe the Observer pattern like this:</p>
+
+<p>Define a one to many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.</p>
+
+<p>The Observer pattern has one subject and potentially many observers.</p>
+
+<p>Observers register with the subject, which notifies the observers when events occur.</p>
+
+<p>The prototypical Observer example is a graphical user interface (GUI) that simultaneously displays two views of a single model; the views register with the model, and when the model changes, it notifies the views, which update accordingly.</p>
+
+<h3 id="the-decorator-pattern">The Decorator Pattern</h3>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/angularjs/2014/12/21/working-with-forms" title="Working with Forms">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/swing/2015/02/04/swing_resources" title="swing resources">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="" data-num-posts="5" data-width="580" data-colorscheme="light"></div>
+
+
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>04 February 2015</span></div>
+
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#swing-ref">swing <span>5</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; javiosyc 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

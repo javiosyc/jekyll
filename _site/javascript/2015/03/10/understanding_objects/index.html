@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>understanding_objects</title>
+    <meta name="description" content="Understanding Objects">
+    <meta name="author" content="javiosyc">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/css/1.4.0/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">Javio</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>understanding_objects <small>Supporting tagline</small></h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    
+<p>Even though there are a number of built- in reference types in JavaScript, you will most likely create your own objects fairly frequently.</p>
+
+<p>As you do so, <strong>keep in mind that objects in JavaScript are dynamic, meaning that
+they can change at any point during code execution</strong>.</p>
+
+<p>Whereas class-based languages lock down objects based on a class definition, JavaScript objects have no such restrictions.</p>
+
+<p>A large part of JavaScript programming is managing those objects, which is why understanding how objects work is key to understanding JavaScript as a whole.</p>
+
+<h2 id="defining-properties">Defining Properties</h2>
+
+<p>When a property is first added to an object, JavaScript <strong>uses an internal method called [[Put]] on the object</strong>.</p>
+
+<p><strong>The [[Put]] method creates a spot in the object to store the property</strong>.</p>
+
+<p>You can compare this to adding a key to a hash table for the first time.</p>
+
+<p>This operation specifies not just the initial value, but also some attributes of the property.</p>
+
+<p>So, in the previous example, when the name and age properties are first defined on each object, the [[Put]] method is invoked for each.</p>
+
+<p>The result of calling [[Put]] is the creation of an own property on the object.</p>
+
+<p>An own property simply indicates that the specific instance of the object owns that property.</p>
+
+<p>The property is stored directly on the instance, and all operations on the property must be performed through that object.</p>
+
+<p><strong>When a new value is assigned to an existing property, a separate operation called [[Set]] takes place</strong>.</p>
+
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/javascript/2015/02/22/constructors-and-prototypes" title="CONSTRUCTORS AND PROTOTYPES">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="" data-num-posts="5" data-width="580" data-colorscheme="light"></div>
+
+
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>10 March 2015</span></div>
+
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#object-ref">object <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; javiosyc 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

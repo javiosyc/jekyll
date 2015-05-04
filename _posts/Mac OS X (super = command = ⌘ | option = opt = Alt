@@ -1,0 +1,37 @@
+Mac OS X (super = command = ⌘ | option = opt = Alt = ⌥ | Control = ctrl = ^)
+
+編輯
+
+⌘ + N 開新分頁
+
+⌘ + X 刪除行
+
+⌘ + / 單行註解
+
+⌘ + ⌥ + / 區塊註解
+
+⌘ + F 搜尋
+
+⌘ + ⌥ + F 取代
+
+⌘ + Shift + F 檔案間搜尋
+
+⌘ + R 快速跳到某個函數
+
+⌘ + ^ + F 全螢幕
+
+⌘ + ^ + Shift + F 極簡潔全螢幕
+
+⌘ + ⌥ + [1-4] 水平多重視圖
+
+⌘ + ⌥ + Shift +  [8,9] 垂直多重視圖
+
+⌘ + ⌥ + 5 4格多重視圖
+
+⌥ + Mouse Left Drag Column Selection
+
+環境
+
+⌘ + Shift + P Sublime 命令列
+
+Control + ` Python 控制台	
